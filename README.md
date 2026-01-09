@@ -5,6 +5,6 @@ Jeffry Alberto Araya Chaves  -> 2022437443
 José Antonio Rivera Valverde -> 2023332631 
 
 
-### Estado del proyecto:
+### Estado del proyecto: Bueno
 ### Enlace del video:
 Recordar que el video debe ser público para ser visto por el profesor
