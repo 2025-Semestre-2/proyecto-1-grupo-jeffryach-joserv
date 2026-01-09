@@ -32,15 +32,15 @@ CREATE TABLE Establecimiento(
 	nombre VARCHAR(200) NOT NULL,
 	CedulaJuridica VARCHAR(50) NOT NULL UNIQUE,
 	tipo VARCHAR(20) NOT NULL,
-	referencia_gps VARCHAR(100) NULL,
+	referenciaGps VARCHAR(100) NULL,
 	telefono1 VARCHAR(20) NOT NULL,
-	codigo_pais_tel1 VARCHAR(5) NOT NULL DEFAULT '+506',
+	codigoPaisTel1 VARCHAR(5) NOT NULL DEFAULT '+506',
 	telefono2 VARCHAR(20) NULL,
-	codigo_pais_tel2 VARCHAR(5) NULL,
+	codigoPaisTel2 VARCHAR(5) NULL,
 	email VARCHAR(100) NOT NULL,
-	sitio_web VARCHAR(200) NULL,
+	sitioWeb VARCHAR(200) NULL,
 	Activo BIT NOT NULL DEFAULT 1,
-	fecha_registro DATETIME2 NOT NULL DEFAULT GETDATE(),
+	fechaRegistro DATETIME2 NOT NULL DEFAULT GETDATE(),
 	CONSTRAINT pk_Establecimiento PRIMARY KEY (EstablecimientoID)
 );
 
@@ -56,16 +56,16 @@ CREATE TABLE Clientes(
 	Nombre VARCHAR(100) NOT NULL,
 	PrimerApellido VARCHAR(100) NOT NULL,
 	SegundoApellido VARCHAR(100) NULL,
-	fecha_nacimiento DATE NOT NULL,
+	fechaNacimiento DATE NOT NULL,
 	TipoIdentificacion VARCHAR(20) NOT NULL,
 	NumeroIdentificacion VARCHAR(50) NOT NULL UNIQUE,
-	pais_residencia_id INT NOT NULL,
+	paisResidenciaId INT NOT NULL,
 	telefono1 VARCHAR(20) NOT NULL,
-	codigo_pais_tel1 VARCHAR(5) NOT NULL,
+	codigoPaisTel1 VARCHAR(5) NOT NULL,
 	telefono2 VARCHAR(20) NULL,
-	codigo_pais_tel2 VARCHAR(5) NULL,
+	codigoPaisTel2 VARCHAR(5) NULL,
 	email VARCHAR(100) NOT NULL,
-	fecha_registro DATETIME2 NOT NULL DEFAULT GETDATE(),
+	fechaRegistro DATETIME2 NOT NULL DEFAULT GETDATE(),
 	CONSTRAINT pk_Clientes PRIMARY KEY (ClienteID)
 );
 
@@ -81,11 +81,11 @@ CREATE TABLE EmpresasRecreacion(
 	CedulaJuridica VARCHAR(50) NOT NULL UNIQUE,
 	Email VARCHAR(100) NOT NULL,
 	Telefono VARCHAR(20) NOT NULL,
-	nombre_contacto VARCHAR(200) NOT NULL,
-	descripcion_actividad VARCHAR(MAX) NULL,
+	nombreContacto VARCHAR(200) NOT NULL,
+	descripcionActividad VARCHAR(MAX) NULL,
 	Precio DECIMAL(12,2) NOT NULL,
 	Activo BIT NOT NULL DEFAULT 1,
-	fecha_registro DATETIME2 NOT NULL DEFAULT GETDATE(),
+	fechaRegistro DATETIME2 NOT NULL DEFAULT GETDATE(),
 	CONSTRAINT pk_EmpresasRecreacion PRIMARY KEY (EmpresaID)
 );
 
@@ -139,7 +139,7 @@ CREATE TABLE TiposHabitacion(
 	Descripcion VARCHAR(MAX) NULL,
 	TipoCama VARCHAR(20) NOT NULL,
 	Precio DECIMAL(12,2) NOT NULL,
-	fecha_registro DATETIME2 NOT NULL DEFAULT GETDATE(),
+	fechaRegistro DATETIME2 NOT NULL DEFAULT GETDATE(),
 	CONSTRAINT pk_TiposHabitacion PRIMARY KEY (TipoHabitacionID)
 );
 
@@ -161,7 +161,7 @@ CREATE TABLE Reservaciones(
 	PoseeVehiculo VARCHAR(20) NOT NULL,
 	PlacaVehiculo VARCHAR(20) NULL,
 	Estado VARCHAR(20) NOT NULL,
-	fecha_registro DATETIME2 NOT NULL DEFAULT GETDATE(),
+	fechaRegistro DATETIME2 NOT NULL DEFAULT GETDATE(),
 	CONSTRAINT pk_Reservaciones PRIMARY KEY (ReservacionID)
 );
 
@@ -170,7 +170,7 @@ CREATE TABLE Facturas(
 	ReservacionID BIGINT FOREIGN KEY REFERENCES Reservaciones(ReservacionID),
 	FechaEmision DATETIME2 NOT NULL,
 	NumeroNoches INT NOT NULL,
-	cargo_habitacion DECIMAL(12,2) NOT NULL,
+	cargoHabitacion DECIMAL(12,2) NOT NULL,
 	ImporteTotal DECIMAL(12,2) NOT NULL,
 	MetodoPago VARCHAR(20) NOT NULL,
 	CONSTRAINT pk_Facturas PRIMARY KEY (FacturaID)
